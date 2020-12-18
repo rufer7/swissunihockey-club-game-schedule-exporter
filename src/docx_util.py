@@ -5,7 +5,6 @@ from typing import Tuple
 
 import docx.document
 import docx.table
-from docx.shared import RGBColor
 from docx.table import Table
 
 
