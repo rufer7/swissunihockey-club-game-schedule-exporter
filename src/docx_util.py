@@ -65,7 +65,7 @@ def add_report_table(document: docx.document.Document, headings: Tuple, n_rows: 
     @param n_rows: number of rows
     @return:
     """
-    table = CachedTable.transform(document.add_table(rows=n_rows, cols=len(headings), style="Table Groups"))
+    table = CachedTable.transform(document.add_table(rows=n_rows, cols=len(headings), style="Table"))
     for i, heading in enumerate(headings):
         table.cell(0, i).text = heading
     return table

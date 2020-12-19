@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c2064a9-2064-4f5d-9856-2501072d69f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/pylint.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/swissunihockey-club-game-schedule-exporter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/swissunihockey-club-game-schedule-exporter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empty-game-schedule.docx" beforeDir="false" afterPath="$PROJECT_DIR$/empty-game-schedule.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608414456002</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="minor">
+      <created>1608414554121</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1608414554121</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -182,11 +187,11 @@
     <MESSAGE value="swiss_unihockey_api.py added" />
     <MESSAGE value="export_club_game_schedule.py&#10;- skeleton implemented" />
     <MESSAGE value="swiss_unihockey_api.py&#10;- skeleton class added for game record" />
-    <MESSAGE value="minor" />
     <MESSAGE value="empty-schedule.docx added" />
     <MESSAGE value="test_export_club_game_schedule.py&#10;- test implemented" />
     <MESSAGE value="empty-schedule.docx renamed to empty-game-schedule.docx" />
     <MESSAGE value="export_club_game_schedule.py&#10;- table creation implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="export_club_game_schedule.py&#10;- table creation implemented" />
+    <MESSAGE value="minor" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor" />
   </component>
 </project>
