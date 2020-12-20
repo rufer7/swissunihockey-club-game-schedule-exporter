@@ -18,9 +18,9 @@ IDE: PyCharm
 
     Execute `pip install pytest` in PyCharms `Terminal`
 
-2. Set default test runner to `pytest`
+2. set default test runner to `pytest`
 
-    - Open settings in PyCharm: File > Settings...
+    - Open settings in PyCharm: `File` > `Settings...`
     - Navigate to `Tools` > `Python Integrated Tools`
     - Under `Testing` select `pytest` as default test runner
 
