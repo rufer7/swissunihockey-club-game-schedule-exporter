@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c2064a9-2064-4f5d-9856-2501072d69f7" name="Default Changelist" comment="minor">
-      <change beforePath="$PROJECT_DIR$/.idea/swissunihockey-club-game-schedule-exporter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/swissunihockey-club-game-schedule-exporter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="7c2064a9-2064-4f5d-9856-2501072d69f7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/requirements.txt" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.leinardi.pycharm.pylint.PylintConfigurable" />
   </component>
   <component name="RunManager" selected="Python tests.pytest in test_export_club_game_schedule.py">
     <configuration name="export_club_game_schedule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -270,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608474669997</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="requirements.txt updated">
+      <created>1608496206543</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1608496206543</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -291,6 +294,7 @@
     <MESSAGE value="license header added to .py files" />
     <MESSAGE value="requirements.txt&#10;- added pytest" />
     <MESSAGE value="minor" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor" />
+    <MESSAGE value="requirements.txt updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="requirements.txt updated" />
   </component>
 </project>
