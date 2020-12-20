@@ -1,4 +1,6 @@
 # swissunihockey-club-game-schedule-exporter
+[![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/blob/main/LICENSE)
+
 A python application that allows to export the game schedule of a club belonging to swiss unihockey to a word document
 
 
