@@ -8,7 +8,6 @@ lazy-object-proxy==1.4.3
 lxml==4.6.2
 mccabe==0.6.1
 packaging==20.8
-Pillow==8.0.1
 pluggy==0.13.1
 py==1.10.0
 pylint==2.6.0
