@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7c2064a9-2064-4f5d-9856-2501072d69f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/export_club_game_schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/export_club_game_schedule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swiss_unihockey_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/swiss_unihockey_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_export_club_game_schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_export_club_game_schedule.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608414779855</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="license header added to .py files">
+      <created>1608471056731</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1608471056731</updated>
+    </task>
+    <task id="LOCAL-00018" summary="requirements.txt&#10;- added pytest">
+      <created>1608471141704</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1608471141704</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -203,6 +214,8 @@
     <MESSAGE value="export_club_game_schedule.py&#10;- table creation implemented" />
     <MESSAGE value="minor" />
     <MESSAGE value="Style &quot;Table&quot; defined" />
-    <option name="LAST_COMMIT_MESSAGE" value="Style &quot;Table&quot; defined" />
+    <MESSAGE value="license header added to .py files" />
+    <MESSAGE value="requirements.txt&#10;- added pytest" />
+    <option name="LAST_COMMIT_MESSAGE" value="requirements.txt&#10;- added pytest" />
   </component>
 </project>
