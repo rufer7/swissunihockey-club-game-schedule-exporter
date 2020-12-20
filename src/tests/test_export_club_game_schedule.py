@@ -26,7 +26,7 @@ import os
 import docx
 import pytest
 
-import export_club_game_schedule
+from src import export_club_game_schedule
 
 
 @pytest.fixture(scope="session", autouse=True)
