@@ -5,6 +5,11 @@ A python application that allows to export the game schedule of a club belonging
 
 
 ## Setup
+1. create virtual environment in PyCharm
+1. activate virtual environment by executing the following command in PyCharms `Terminal`
+
+    `venv/Scripts/activate.bat`
+
 1. install dependencies
 
     `pip install -r requirements.txt`
