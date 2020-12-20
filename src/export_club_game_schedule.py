@@ -25,8 +25,8 @@ output: word document
 """
 import docx
 
-from docx_util import add_report_table
-from swiss_unihockey_api_wrapper import GameRecord
+from src.docx_util import add_report_table
+from src.swiss_unihockey_api_wrapper import GameRecord
 
 
 def insert_games(document: docx.Document, games: list[GameRecord]) -> None:
