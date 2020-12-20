@@ -10,6 +10,8 @@
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="C:\src\swissunihockey-club-game-schedule-exporter\src\requirements.txt" />
     <option name="versionSpecifier" value="Strong equality (==x.y.z)" />
+    <option name="modifyBaseFiles" value="true" />
+    <option name="keepMatchingSpecifier" value="false" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="pytest" />

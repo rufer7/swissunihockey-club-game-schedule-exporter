@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c2064a9-2064-4f5d-9856-2501072d69f7" name="Default Changelist" comment="">
+    <list default="true" id="7c2064a9-2064-4f5d-9856-2501072d69f7" name="Default Changelist" comment="minor">
+      <change beforePath="$PROJECT_DIR$/.idea/swissunihockey-club-game-schedule-exporter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/swissunihockey-club-game-schedule-exporter.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +256,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608473154474</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="minor">
+      <created>1608474632987</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1608474632987</updated>
+    </task>
+    <task id="LOCAL-00026" summary="minor">
+      <created>1608474669997</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1608474669997</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
