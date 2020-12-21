@@ -31,4 +31,4 @@ IDE: PyCharm
 
 1. open file tests/test_export_club_game_schedule.py
 
-1. right click on tab in editor and execute `Run 'pytest in test_gener...'`
+1. right click on tab in editor and execute `Run 'pytest in test_expor...'`
