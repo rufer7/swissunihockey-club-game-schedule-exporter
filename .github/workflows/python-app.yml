@@ -33,7 +33,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: set pythonpath
       run: |
-        ::set-env name=PYTHONPATH::home/runner/work/swissunihockey-club-game-schedule-exporter
+        set-env name=PYTHONPATH::home/runner/work/swissunihockey-club-game-schedule-exporter
     - name: Test with pytest
       run: |
         pytest
