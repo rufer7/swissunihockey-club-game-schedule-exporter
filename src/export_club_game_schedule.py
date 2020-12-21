@@ -52,12 +52,12 @@ def insert_paragraphs_from_file(document: docx.Document, path_to_file: str) -> N
     @param path_to_file:
     @return: nothing
     """
-    with open(path_to_file, encoding="utf-8") as fp:
-        line = fp.readline()
+    with open(path_to_file, encoding="utf-8") as stream:
+        line = stream.readline()
         count = 1
         while line:
             document.add_paragraph(line.strip())
-            line = fp.readline()
+            line = stream.readline()
             count += 1
 
 

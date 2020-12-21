@@ -22,6 +22,7 @@ test cases for export_club_game_schedule.py
 
 """
 import os
+from unittest.mock import patch
 
 import docx
 import pytest
@@ -43,6 +44,24 @@ def before_all():
     # load game-schedule.docx
     TestExportedGameSchedule.document = docx.Document("game-schedule.docx")
     print("END before_all SUCCEEDED")
+
+
+class TestInsertion:
+    """
+    class for test grouping purposes
+    """
+    @patch("docx.Document")
+    def test_insert_paragraphs_from_file(self, mocked_document):
+        """
+
+        @param self:
+        @return: nothing
+        """
+        # arrange
+        # act
+        export_club_game_schedule.insert_paragraphs_from_file(mocked_document, "after-table-text.txt")
+        # assert
+        mocked_document.add_paragraph.assert_called_with('Hornets Regio Moosseedorf Worblental')
 
 
 class TestExportedGameSchedule:
