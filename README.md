@@ -21,7 +21,7 @@ A python application that allows to export the game schedule of a club belonging
 
 
 ## Execute tests
-IDE: PyCharm
+In PyCharm IDE:
 
 1. set default test runner to `pytest`
 
@@ -32,3 +32,13 @@ IDE: PyCharm
 1. open file tests/test_export_club_game_schedule.py
 
 1. right click on tab in editor and execute `Run 'pytest in test_expor...'`
+
+In Terminal of Pycharm IDE:
+1. Activate venv if not yet active
+1. Change to `tests` directory
+
+    `cd src\tests`
+1. Execute `pytest`
+
+    `pytest`
+
