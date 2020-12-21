@@ -45,6 +45,22 @@ def insert_games(document: docx.Document, games: list[GameRecord]) -> None:
         table.cell(row, 3).text = game.opponent
 
 
+def insert_paragraphs_from_file(document: docx.Document, path_to_file: str) -> None:
+    """
+    insert paragraphs from file into document
+    @param document:
+    @param path_to_file:
+    @return: nothing
+    """
+    with open(path_to_file, encoding="utf-8") as fp:
+        line = fp.readline()
+        count = 1
+        while line:
+            document.add_paragraph(line.strip())
+            line = fp.readline()
+            count += 1
+
+
 def generate_game_schedule(document: docx.Document) -> None:
     """
     generate game schedule
@@ -53,11 +69,7 @@ def generate_game_schedule(document: docx.Document) -> None:
     """
     games: list[GameRecord] = []
     insert_games(document, games)
-    # TODO - insert paragraph
-    # Alle aufgeführten Spiele finden in der Raiffeisen unihockeyARENA am Sportweg 3 in 3322 Urtenen-Schönbühl statt!
-    # Wir freuen uns, Sie in unserer Halle als Zuschauer begrüssen zu dürfen.
-    #
-    # Hornets Regio Moosseedorf Worblental
+    insert_paragraphs_from_file(document, "after-table-text.txt")
 
 
 def main() -> None:
