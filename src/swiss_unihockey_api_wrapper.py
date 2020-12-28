@@ -17,6 +17,7 @@
    limitations under the License.
 
 wrapper for swiss unihockey API v2
+API documentation: https://api-v2.swissunihockey.ch/api/doc
 
 
 """

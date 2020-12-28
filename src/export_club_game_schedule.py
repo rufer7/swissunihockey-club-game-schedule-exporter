@@ -16,7 +16,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-script for exporting the game schedule of the selected club to a word document
+script for exporting the home game schedule of the selected club and season to a word document
 
 input: data from swiss unihockey API v2
 output: word document
