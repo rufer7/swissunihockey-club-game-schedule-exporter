@@ -22,6 +22,7 @@ test cases for export_club_game_schedule.py
 
 """
 import os
+from unittest import mock
 from unittest.mock import patch
 
 import docx
@@ -39,8 +40,11 @@ def before_all():
     print("START before_all ...")
     # change working directory to src so that files like empty-game-schedule.docx, game-schedule.docx could be found
     os.chdir(os.path.relpath('..'))
-    # generate game schedule
-    export_club_game_schedule.main()
+
+    with mock.patch('export_club_game_schedule.select_season_club_and_home_arena') as MockClass:
+        MockClass.return_value = (2020, "Hornets R.Moosseedorf Worblental", "RAIFFEISEN unihockeyARENA")
+        # generate game schedule
+        export_club_game_schedule.main()
     # load game-schedule.docx
     TestExportedGameSchedule.document = docx.Document("game-schedule.docx")
     print("END before_all SUCCEEDED")

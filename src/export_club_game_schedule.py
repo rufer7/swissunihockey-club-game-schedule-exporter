@@ -23,10 +23,73 @@ output: word document
 
 
 """
+import tkinter
+from datetime import datetime
+from tkinter import Tk, StringVar, OptionMenu
+from typing import Tuple, List
+
 import docx
 
 from docx_util import add_report_table
 from swiss_unihockey_api_wrapper import GameRecord
+
+
+def select_season_club_and_home_arena() -> Tuple[int, str, str]:
+    """
+    show UI for selection of season, club and home arena
+    @return:
+    """
+    seasons: List[int] = [
+        datetime.now().year - 1,
+        datetime.now().year,
+        datetime.now().year + 1
+    ]
+
+    root = Tk()
+    root.title("Select season, club and home arena")
+    root.geometry("375x120")
+    root.columnconfigure(0, weight=1)
+    root.columnconfigure(1, weight=1)
+
+    season_variable = StringVar(root)
+    club_variable = StringVar(root)
+    home_arena_variable = StringVar(root)
+
+    season_label = tkinter.Label(root, text="Season:")
+    season_label.grid(row=1, column=0, sticky="w")
+
+    season_option_menu = OptionMenu(root, season_variable, *seasons)
+    season_option_menu.grid(row=1, column=1, sticky="nsew")
+
+    def on_select_season(*args):
+        selected_season = season_variable.get()
+        clubs = {"tralala": 1, "tralala2": 2}
+
+        club_label = tkinter.Label(root, text="Club:")
+        club_label.grid(row=2, column=0, sticky="w")
+        club_option_menu = OptionMenu(root, club_variable, *clubs)
+        club_option_menu.grid(row=2, column=1, sticky="nsew")
+
+    season_variable.trace('w', on_select_season)
+
+    def on_select_club(*args):
+        home_arenas = ["arena", "arena2"]
+
+        home_arena_label = tkinter.Label(root, text="Home arena:")
+        home_arena_label.grid(row=3, column=0, sticky="w")
+        home_arena_option_menu = OptionMenu(root, home_arena_variable, *home_arenas)
+        home_arena_option_menu.grid(row=3, column=1, sticky="nsew")
+
+    club_variable.trace('w', on_select_club)
+
+    def on_select_home_arena(*args):
+        root.quit()
+
+    home_arena_variable.trace('w', on_select_home_arena)
+
+    root.mainloop()
+
+    return season_variable.get(), club_variable.get(), home_arena_variable.get()
 
 
 def insert_games(document: docx.Document, games: list[GameRecord]) -> None:
@@ -67,6 +130,7 @@ def generate_game_schedule(document: docx.Document) -> None:
     @param document:
     @return: nothing
     """
+    season, club_name, home_arena = select_season_club_and_home_arena()
     games: list[GameRecord] = []
     insert_games(document, games)
     insert_paragraphs_from_file(document, "after-table-text.txt")
