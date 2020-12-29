@@ -28,6 +28,7 @@ from typing import Dict
 import requests
 
 API_V2_BASE_URI = "https://api-v2.swissunihockey.ch/api/"
+UNDEFINED_LOCATION = "???"
 
 
 @dataclass
@@ -70,6 +71,8 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
                             + "&season="
                             + str(season))
     json_data = json.loads(response.text)
+    title = json_data["data"]["title"]
+    club_name = title[15:title.find(',')]
     game_data_rows = json_data["data"]["regions"][0]["rows"]
     for game_data_row in game_data_rows:
         cells = game_data_row["cells"]
@@ -77,24 +80,40 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
             game_record = GameRecord()
             game_record.date = cells[0]["text"][0]
             game_record.start_time = cells[0]["text"][1]
-            league = cells[2]["text"][0]
-            if league.startswith("Herren"):
-                league = "Herren"
-            elif league.startswith("Damen"):
-                league = "Damen"
-            else:
-                league = league.replace(" Regional", "")
+            home_team_name_prefix = get_home_team_name_prefix(cells[2]["text"][0])
             if cells[3]["text"][0].startswith("Hornets"):
-                home_team_number = cells[3]["text"][0].replace("Hornets R.Moosseedorf Worblental ", "")
+                # TODO - replace dynamically
+                home_team_name_suffix = cells[3]["text"][0].replace(club_name, "")
                 opponent = cells[4]["text"][0]
             else:
-                home_team_number = cells[4]["text"][0].replace("Hornets R.Moosseedorf Worblental ", "")
+                # TODO - replace dynamically
+                home_team_name_suffix = cells[4]["text"][0].replace(club_name, "")
                 opponent = cells[3]["text"][0]
-            game_record.home_team_name = "%s %s" % (league, home_team_number)
+            if (home_team_name_suffix == "" or home_team_name_suffix == " ") \
+                    and not home_team_name_prefix.startswith("Junioren U") \
+                    and not home_team_name_prefix.startswith("Junioren/-innen U"):
+                home_team_name_suffix = " I"
+            game_record.home_team_name = home_team_name_prefix + home_team_name_suffix
             game_record.opponent = opponent
             home_games.append(game_record)
 
     return home_games
+
+
+def get_home_team_name_prefix(league: str) -> str:
+    """
+    get prefix for home team name
+    @param league: league name
+    """
+    league = league.replace("Ligacup ", "")
+    league = league.replace("Schweizer Cup ", "")
+    league = league.replace(" Regional", "")
+
+    if league.startswith("Herren"):
+        return "Herren"
+    elif league.startswith("Damen"):
+        return "Damen"
+    return league
 
 
 def load_arena_names(club_id: int, season: int) -> set:
@@ -112,5 +131,6 @@ def load_arena_names(club_id: int, season: int) -> set:
     json_data = json.loads(response.text)
     game_data_rows = json_data["data"]["regions"][0]["rows"]
     arena_names = set(game_data_row["cells"][1]["text"][0] for game_data_row in game_data_rows)
-    arena_names.remove("???")
+    if UNDEFINED_LOCATION in arena_names:
+        arena_names.remove(UNDEFINED_LOCATION)
     return arena_names
