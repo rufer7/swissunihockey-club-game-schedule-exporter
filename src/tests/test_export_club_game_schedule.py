@@ -74,7 +74,7 @@ class TestExportedGameSchedule:  # pylint: disable=too-few-public-methods
     """
     document = None
 
-    def test_table_headers_in_game_schedule(self):
+    def test_table_headers_in_document(self):
         """
 
         @param self:
@@ -91,3 +91,17 @@ class TestExportedGameSchedule:  # pylint: disable=too-few-public-methods
         assert header_row.cells[1].text == "Anpfiff"
         assert header_row.cells[2].text == "Hornets-Team"
         assert header_row.cells[3].text == "Gegner"
+
+    def test_amount_of_rows_in_document(self):
+        """
+
+        @param self:
+        @return: nothing
+        """
+        # arrange
+        assert self.document
+        tables = self.document.tables
+        table = tables[0]
+        table.rows
+        # assert
+        assert len(table.rows) - 1 == 58
