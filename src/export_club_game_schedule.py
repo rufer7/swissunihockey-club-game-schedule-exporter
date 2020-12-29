@@ -26,12 +26,12 @@ output: word document
 import tkinter
 from datetime import datetime
 from tkinter import Tk, StringVar, OptionMenu
-from typing import Tuple, List
+from typing import Tuple, List, Dict
 
 import docx
 
 from docx_util import add_report_table
-from swiss_unihockey_api_wrapper import GameRecord
+from swiss_unihockey_api_wrapper import GameRecord, load_clubs, load_home_games
 
 
 def select_season_club_and_home_arena() -> Tuple[int, str, str]:
@@ -62,8 +62,12 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
     season_option_menu.grid(row=1, column=1, sticky="nsew")
 
     def on_select_season(*args):
+        """
+
+        @param args:
+        """
         selected_season = season_variable.get()
-        clubs = {"tralala": 1, "tralala2": 2}
+        clubs = load_clubs(selected_season)
 
         club_label = tkinter.Label(root, text="Club:")
         club_label.grid(row=2, column=0, sticky="w")
@@ -73,6 +77,10 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
     season_variable.trace('w', on_select_season)
 
     def on_select_club(*args):
+        """
+
+        @param args:
+        """
         home_arenas = ["arena", "arena2"]
 
         home_arena_label = tkinter.Label(root, text="Home arena:")
@@ -83,6 +91,10 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
     club_variable.trace('w', on_select_club)
 
     def on_select_home_arena(*args):
+        """
+
+        @param args:
+        """
         root.quit()
 
     home_arena_variable.trace('w', on_select_home_arena)
@@ -104,7 +116,7 @@ def insert_games(document: docx.Document, games: list[GameRecord]) -> None:
         row = i + 1
         table.cell(row, 0).text = game.date
         table.cell(row, 1).text = game.start_time
-        table.cell(row, 2).text = game.team_name
+        table.cell(row, 2).text = game.home_team_name
         table.cell(row, 3).text = game.opponent
 
 
@@ -131,8 +143,10 @@ def generate_game_schedule(document: docx.Document) -> None:
     @return: nothing
     """
     season, club_name, home_arena = select_season_club_and_home_arena()
-    games: list[GameRecord] = []
-    insert_games(document, games)
+    clubs: Dict[str, int] = load_clubs(season)
+    club_id = clubs[club_name]
+    home_games: list[GameRecord] = load_home_games(club_id, season, home_arena)
+    insert_games(document, home_games)
     insert_paragraphs_from_file(document, "after-table-text.txt")
 
 
