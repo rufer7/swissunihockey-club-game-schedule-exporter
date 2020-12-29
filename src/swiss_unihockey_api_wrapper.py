@@ -111,4 +111,6 @@ def load_arena_names(club_id: int, season: int) -> set:
                             + str(season))
     json_data = json.loads(response.text)
     game_data_rows = json_data["data"]["regions"][0]["rows"]
-    return set(game_data_row["cells"][1]["text"][0] for game_data_row in game_data_rows)
+    arena_names = set(game_data_row["cells"][1]["text"][0] for game_data_row in game_data_rows)
+    arena_names.remove("???")
+    return arena_names
