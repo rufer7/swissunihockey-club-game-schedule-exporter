@@ -47,6 +47,9 @@ class TestGamesLoading:
     """
     class for test grouping purposes
     """
+    HORNETS_CLUB_ID = 441388
+    HORNETS_HOME_ARENA = "RAIFFEISEN unihockeyARENA"
+
     def test_load_home_games(self):
         """
 
@@ -54,9 +57,20 @@ class TestGamesLoading:
         @return: nothing
         """
         # arrange
-        hornets_club_id = 441388
-        hornets_home_arena = "RAIFFEISEN unihockeyARENA"
         # act
-        hornets_home_games = swiss_unihockey_api_wrapper.load_home_games(hornets_club_id, SEASON, hornets_home_arena)
+        hornets_home_games = swiss_unihockey_api_wrapper.load_home_games(self.HORNETS_CLUB_ID, SEASON, self.HORNETS_HOME_ARENA)
         # assert
         assert len(hornets_home_games) == 58
+
+    def test_load_arena_names(self):
+        """
+
+        @param self:
+        @return: nothing
+        """
+        # arrange
+        # act
+        arena_names = swiss_unihockey_api_wrapper.load_arena_names(self.HORNETS_CLUB_ID, SEASON)
+        # assert
+        assert len(arena_names) == 47
+        assert self.HORNETS_HOME_ARENA in arena_names

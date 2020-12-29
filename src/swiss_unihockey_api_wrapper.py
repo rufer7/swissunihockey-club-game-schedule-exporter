@@ -78,7 +78,12 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
             game_record.date = cells[0]["text"][0]
             game_record.start_time = cells[0]["text"][1]
             league = cells[2]["text"][0]
-            league = league.replace(" Regional", "")
+            if league.startswith("Herren"):
+                league = "Herren"
+            elif league.startswith("Damen"):
+                league = "Damen"
+            else:
+                league = league.replace(" Regional", "")
             if cells[3]["text"][0].startswith("Hornets"):
                 home_team_number = cells[3]["text"][0].replace("Hornets R.Moosseedorf Worblental ", "")
                 opponent = cells[4]["text"][0]
@@ -90,3 +95,20 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
             home_games.append(game_record)
 
     return home_games
+
+
+def load_arena_names(club_id: int, season: int) -> set:
+    """
+    load names of arenas the specified club plays at in the specified season
+    @param club_id: id of the club
+    @param season: season (i.e. 2020 for season 2020/2021)
+    @return: set of names of arenas the club plays at in the given season
+    """
+    response = requests.get(API_V2_BASE_URI
+                            + "games?mode=club&games_per_page=1000&club_id="
+                            + str(club_id)
+                            + "&season="
+                            + str(season))
+    json_data = json.loads(response.text)
+    game_data_rows = json_data["data"]["regions"][0]["rows"]
+    return set(game_data_row["cells"][1]["text"][0] for game_data_row in game_data_rows)
