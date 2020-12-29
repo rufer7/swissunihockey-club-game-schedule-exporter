@@ -41,7 +41,7 @@ def before_all():
     # change working directory to src so that files like empty-game-schedule.docx, game-schedule.docx could be found
     os.chdir(os.path.relpath('..'))
 
-    with mock.patch('export_club_game_schedule.select_season_club_and_home_arena') as MockClass:
+    with mock.patch('export_club_game_schedule.select_season_club_and_home_arena') as MockClass:  # pylint: disable=invalid-name
         MockClass.return_value = (2020, "Hornets R.Moosseedorf Worblental", "RAIFFEISEN unihockeyARENA")
         # generate game schedule
         export_club_game_schedule.main()
@@ -50,12 +50,12 @@ def before_all():
     print("END before_all SUCCEEDED")
 
 
-class TestInsertion:
+class TestInsertion:  # pylint: disable=too-few-public-methods
     """
     class for test grouping purposes
     """
     @patch("docx.Document")
-    def test_insert_paragraphs_from_file(self, mocked_document):
+    def test_insert_paragraphs_from_file(self, mocked_document):  # pylint: disable=no-self-use
         """
 
         @param self:
@@ -68,7 +68,7 @@ class TestInsertion:
         mocked_document.add_paragraph.assert_called_with('Hornets Regio Moosseedorf Worblental')
 
 
-class TestExportedGameSchedule:
+class TestExportedGameSchedule:  # pylint: disable=too-few-public-methods
     """
     class for test grouping purposes
     """

@@ -82,15 +82,13 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
             game_record.start_time = cells[0]["text"][1]
             home_team_name_prefix = get_home_team_name_prefix(cells[2]["text"][0])
             if cells[3]["text"][0].startswith("Hornets"):
-                # TODO - replace dynamically
                 home_team_name_suffix = cells[3]["text"][0].replace(club_name, "")
                 opponent = cells[4]["text"][0]
             else:
-                # TODO - replace dynamically
                 home_team_name_suffix = cells[4]["text"][0].replace(club_name, "")
                 opponent = cells[3]["text"][0]
-            if (home_team_name_suffix == "" or home_team_name_suffix == " ") \
-                    and not home_team_name_prefix.startswith("Junioren U") \
+            if home_team_name_suffix in ("", " ")\
+                    and not home_team_name_prefix.startswith("Junioren U")\
                     and not home_team_name_prefix.startswith("Junioren/-innen U"):
                 home_team_name_suffix = " I"
             game_record.home_team_name = home_team_name_prefix + home_team_name_suffix
@@ -111,7 +109,7 @@ def get_home_team_name_prefix(league: str) -> str:
 
     if league.startswith("Herren"):
         return "Herren"
-    elif league.startswith("Damen"):
+    if league.startswith("Damen"):
         return "Damen"
     return league
 

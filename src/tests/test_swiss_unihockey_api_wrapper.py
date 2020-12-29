@@ -26,11 +26,11 @@ import swiss_unihockey_api_wrapper
 SEASON = 2020
 
 
-class TestClubsLoading:
+class TestClubsLoading:  # pylint: disable=too-few-public-methods
     """
     class for test grouping purposes
     """
-    def test_load_clubs(self):
+    def test_load_clubs(self):  # pylint: disable=no-self-use
         """
 
         @param self:
@@ -59,7 +59,9 @@ class TestGamesLoading:
         """
         # arrange
         # act
-        hornets_home_games = swiss_unihockey_api_wrapper.load_home_games(self.HORNETS_CLUB_ID, SEASON, self.HORNETS_HOME_ARENA)
+        hornets_home_games = swiss_unihockey_api_wrapper.load_home_games(self.HORNETS_CLUB_ID,
+                                                                         SEASON,
+                                                                         self.HORNETS_HOME_ARENA)
         # assert
         assert len(hornets_home_games) == 58
         first = hornets_home_games[0]

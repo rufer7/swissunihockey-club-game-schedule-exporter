@@ -61,7 +61,7 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
     season_option_menu = OptionMenu(root, season_variable, *selectable_seasons)
     season_option_menu.grid(row=1, column=1, sticky="nsew")
 
-    def on_select_season(*args):
+    def on_select_season(*args):  # pylint: disable=unused-argument
         """
         callback to be executed on season selection
         @param args:
@@ -75,7 +75,7 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
 
     season_variable.trace('w', on_select_season)
 
-    def on_select_club(*args):
+    def on_select_club(*args):  # pylint: disable=unused-argument
         """
         callback to be executed on club selection
         @param args:
@@ -92,7 +92,7 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
 
     club_variable.trace('w', on_select_club)
 
-    def on_select_home_arena(*args):
+    def on_select_home_arena(*args):  # pylint: disable=unused-argument
         """
         callback to be executed on home arena selection
         @param args:
