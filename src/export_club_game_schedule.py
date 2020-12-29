@@ -19,7 +19,7 @@
 script for exporting the home game schedule of the selected club and season to a word document
 
 input: data from swiss unihockey API v2
-output: word document
+output: Word document
 
 
 """
@@ -37,9 +37,9 @@ from swiss_unihockey_api_wrapper import GameRecord, load_clubs, load_home_games
 def select_season_club_and_home_arena() -> Tuple[int, str, str]:
     """
     show UI for selection of season, club and home arena
-    @return:
+    @return: tuple with season, club name and home arena
     """
-    seasons: List[int] = [
+    selectable_seasons: List[int] = [
         datetime.now().year - 1,
         datetime.now().year,
         datetime.now().year + 1
@@ -58,12 +58,12 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
     season_label = tkinter.Label(root, text="Season:")
     season_label.grid(row=1, column=0, sticky="w")
 
-    season_option_menu = OptionMenu(root, season_variable, *seasons)
+    season_option_menu = OptionMenu(root, season_variable, *selectable_seasons)
     season_option_menu.grid(row=1, column=1, sticky="nsew")
 
     def on_select_season(*args):
         """
-
+        callback to be executed on season selection
         @param args:
         """
         selected_season = season_variable.get()
@@ -78,9 +78,10 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
 
     def on_select_club(*args):
         """
-
+        callback to be executed on club selection
         @param args:
         """
+        # TODO - load selectable arenas
         home_arenas = ["arena", "arena2"]
 
         home_arena_label = tkinter.Label(root, text="Home arena:")
@@ -92,7 +93,7 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
 
     def on_select_home_arena(*args):
         """
-
+        callback to be executed on home arena selection
         @param args:
         """
         root.quit()
@@ -107,8 +108,8 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
 def insert_games(document: docx.Document, games: list[GameRecord]) -> None:
     """
     insert table containing games into document
-    @param document:
-    @param games:
+    @param document: Word document
+    @param games: list of game records to be inserted
     @return: nothing
     """
     table = add_report_table(document, ('Datum', 'Anpfiff', 'Hornets-Team', 'Gegner'), len(games) + 1)
@@ -123,8 +124,8 @@ def insert_games(document: docx.Document, games: list[GameRecord]) -> None:
 def insert_paragraphs_from_file(document: docx.Document, path_to_file: str) -> None:
     """
     insert paragraphs from file into document
-    @param document:
-    @param path_to_file:
+    @param document: Word document
+    @param path_to_file: path to the file that contains the paragraphs to be inserted
     @return: nothing
     """
     with open(path_to_file, encoding="utf-8") as stream:
@@ -139,7 +140,7 @@ def insert_paragraphs_from_file(document: docx.Document, path_to_file: str) -> N
 def generate_game_schedule(document: docx.Document) -> None:
     """
     generate game schedule
-    @param document:
+    @param document: Word document
     @return: nothing
     """
     season, club_name, home_arena = select_season_club_and_home_arena()

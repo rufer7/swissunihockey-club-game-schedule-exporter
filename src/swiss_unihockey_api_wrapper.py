@@ -23,7 +23,6 @@ API documentation: https://api-v2.swissunihockey.ch/api/doc
 """
 import json
 from dataclasses import dataclass
-from datetime import date
 from typing import Dict
 
 import requests
@@ -46,7 +45,7 @@ def load_clubs(season: int) -> Dict[str, int]:
     """
     load clubs of specified season
     @param season: season (i.e. 2020 for season 2020/2021)
-    @return:
+    @return: dictionary with names (keys) and ids (values) of clubs
     """
     clubs: Dict[str, int] = {}
     response = requests.get(API_V2_BASE_URI + "clubs?season=" + str(season))
@@ -62,10 +61,14 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
     @param club_id: id of the club
     @param season: season (i.e. 2020 for season 2020/2021)
     @param home_arena: name of home arena
-    @return:
+    @return: list of home games
     """
     home_games: list[GameRecord] = []
-    response = requests.get(API_V2_BASE_URI + "games?mode=club&games_per_page=1000&club_id=" + str(club_id) + "&season=" + str(season))
+    response = requests.get(API_V2_BASE_URI
+                            + "games?mode=club&games_per_page=1000&club_id="
+                            + str(club_id)
+                            + "&season="
+                            + str(season))
     json_data = json.loads(response.text)
     game_data_rows = json_data["data"]["regions"][0]["rows"]
     for game_data_row in game_data_rows:
