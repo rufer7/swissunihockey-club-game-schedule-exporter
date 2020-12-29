@@ -41,6 +41,7 @@ class TestClubsLoading:
         clubs = swiss_unihockey_api_wrapper.load_clubs(SEASON)
         # assert
         assert len(clubs) == 377
+        assert clubs["Hornets R.Moosseedorf Worblental"]
 
 
 class TestGamesLoading:
@@ -61,6 +62,11 @@ class TestGamesLoading:
         hornets_home_games = swiss_unihockey_api_wrapper.load_home_games(self.HORNETS_CLUB_ID, SEASON, self.HORNETS_HOME_ARENA)
         # assert
         assert len(hornets_home_games) == 58
+        first = hornets_home_games[0]
+        assert first.date == "16.08.2020"
+        assert first.start_time == "19:30"
+        assert first.home_team_name == "Herren IV"
+        assert first.opponent == "Team Flamingo"
 
     def test_load_arena_names(self):
         """
@@ -72,5 +78,7 @@ class TestGamesLoading:
         # act
         arena_names = swiss_unihockey_api_wrapper.load_arena_names(self.HORNETS_CLUB_ID, SEASON)
         # assert
-        assert len(arena_names) == 47
+        assert len(arena_names) == 46
         assert self.HORNETS_HOME_ARENA in arena_names
+        assert "BFO Visp" in arena_names
+        assert "???" not in arena_names
