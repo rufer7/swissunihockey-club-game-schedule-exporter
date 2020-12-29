@@ -31,7 +31,7 @@ from typing import Tuple, List, Dict
 import docx
 
 from docx_util import add_report_table
-from swiss_unihockey_api_wrapper import GameRecord, load_clubs, load_home_games
+from swiss_unihockey_api_wrapper import GameRecord, load_clubs, load_home_games, load_arena_names
 
 
 def select_season_club_and_home_arena() -> Tuple[int, str, str]:
@@ -66,8 +66,7 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
         callback to be executed on season selection
         @param args:
         """
-        selected_season = season_variable.get()
-        clubs = load_clubs(selected_season)
+        clubs = load_clubs(season_variable.get())
 
         club_label = tkinter.Label(root, text="Club:")
         club_label.grid(row=2, column=0, sticky="w")
@@ -81,12 +80,14 @@ def select_season_club_and_home_arena() -> Tuple[int, str, str]:
         callback to be executed on club selection
         @param args:
         """
-        # TODO - load selectable arenas
-        home_arenas = ["arena", "arena2"]
+        selected_season = season_variable.get()
+        clubs = load_clubs(selected_season)
+        club_id = clubs[club_variable.get()]
+        arena_names = load_arena_names(club_id, selected_season)
 
         home_arena_label = tkinter.Label(root, text="Home arena:")
         home_arena_label.grid(row=3, column=0, sticky="w")
-        home_arena_option_menu = OptionMenu(root, home_arena_variable, *home_arenas)
+        home_arena_option_menu = OptionMenu(root, home_arena_variable, *arena_names)
         home_arena_option_menu.grid(row=3, column=1, sticky="nsew")
 
     club_variable.trace('w', on_select_club)
