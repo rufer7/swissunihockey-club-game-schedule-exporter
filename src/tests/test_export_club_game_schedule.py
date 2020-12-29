@@ -102,6 +102,5 @@ class TestExportedGameSchedule:  # pylint: disable=too-few-public-methods
         assert self.document
         tables = self.document.tables
         table = tables[0]
-        table.rows
         # assert
         assert len(table.rows) - 1 == 58
