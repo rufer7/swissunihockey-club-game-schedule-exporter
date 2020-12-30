@@ -3,6 +3,8 @@
 [![Python tests](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/workflows/Python%20tests/badge.svg)](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/actions?query=workflow%3A%22Python+tests%22)
 [![CodeQL](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/workflows/CodeQL/badge.svg)](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/actions?query=workflow%3ACodeQL)
 
+[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Frufer7%2Fswissunihockey-club-game-schedule-exporter)](https://twitter.com/rufer_13)
+
 A python application that allows to export the home game schedule of a club belonging to swiss unihockey to a Word document.
 
 
