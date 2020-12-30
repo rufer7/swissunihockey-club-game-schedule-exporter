@@ -20,7 +20,10 @@ A python application that allows to export the home game schedule of a club belo
     `pip install -r requirements.txt`
 
 ## Run
-`python export_club_game_schedule.py`
+1. change to directory `src`
+1. execute python app
+
+    `python export_club_game_schedule.py`
 
 
 ## Execute tests
