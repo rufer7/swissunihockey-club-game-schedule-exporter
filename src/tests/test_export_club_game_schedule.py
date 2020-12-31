@@ -42,7 +42,10 @@ def before_all():
     os.chdir(os.path.relpath('..'))
 
     with mock.patch('export_club_game_schedule.select_season_club_and_home_arena') as MockClass:  # pylint: disable=invalid-name
-        MockClass.return_value = (2020, "Hornets R.Moosseedorf Worblental", "RAIFFEISEN unihockeyARENA")
+        MockClass.return_value = (
+            2020,
+            "Hornets R.Moosseedorf Worblental",
+            "RAIFFEISEN unihockeyARENA, Urtenen Schönbühl")
         # generate game schedule
         export_club_game_schedule.main()
     # load game-schedule.docx
