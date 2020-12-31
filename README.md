@@ -1,7 +1,10 @@
 # swissunihockey-club-game-schedule-exporter
 [![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/blob/main/LICENSE)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/rufer7/swissunihockey-club-game-schedule-exporter)
 [![Python tests](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/workflows/Python%20tests/badge.svg)](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/actions?query=workflow%3A%22Python+tests%22)
 [![CodeQL](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/workflows/CodeQL/badge.svg)](https://github.com/rufer7/swissunihockey-club-game-schedule-exporter/actions?query=workflow%3ACodeQL)
+
+[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Frufer7%2Fswissunihockey-club-game-schedule-exporter)](https://twitter.com/rufer_13)
 
 A python application that allows to export the home game schedule of a club belonging to swiss unihockey to a Word document.
 
@@ -20,7 +23,10 @@ A python application that allows to export the home game schedule of a club belo
     `pip install -r requirements.txt`
 
 ## Run
-`python export_club_game_schedule.py`
+1. change to directory `src`
+1. execute python app
+
+    `python export_club_game_schedule.py`
 
 
 ## Execute tests

@@ -76,7 +76,7 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
     game_data_rows = json_data["data"]["regions"][0]["rows"]
     for game_data_row in game_data_rows:
         cells = game_data_row["cells"]
-        if home_arena == cells[1]["text"][0]:
+        if home_arena == str.join(", ", cells[1]["text"]):
             game_record = GameRecord()
             game_record.date = cells[0]["text"][0]
             game_record.start_time = cells[0]["text"][1]
@@ -128,7 +128,7 @@ def load_arena_names(club_id: int, season: int) -> set:
                             + str(season))
     json_data = json.loads(response.text)
     game_data_rows = json_data["data"]["regions"][0]["rows"]
-    arena_names = set(game_data_row["cells"][1]["text"][0] for game_data_row in game_data_rows)
+    arena_names = set(str.join(", ", game_data_row["cells"][1]["text"]) for game_data_row in game_data_rows)
     if UNDEFINED_LOCATION in arena_names:
         arena_names.remove(UNDEFINED_LOCATION)
     return arena_names

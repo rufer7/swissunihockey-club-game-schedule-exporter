@@ -49,7 +49,7 @@ class TestGamesLoading:
     class for test grouping purposes
     """
     HORNETS_CLUB_ID = 441388
-    HORNETS_HOME_ARENA = "RAIFFEISEN unihockeyARENA"
+    HORNETS_HOME_ARENA = "RAIFFEISEN unihockeyARENA, Urtenen Schönbühl"
 
     def test_load_home_games(self):
         """
@@ -80,7 +80,7 @@ class TestGamesLoading:
         # act
         arena_names = swiss_unihockey_api_wrapper.load_arena_names(self.HORNETS_CLUB_ID, SEASON)
         # assert
-        assert len(arena_names) == 46
+        assert len(arena_names) == 48
         assert self.HORNETS_HOME_ARENA in arena_names
-        assert "BFO Visp" in arena_names
+        assert "BFO Visp, Visp" in arena_names
         assert "???" not in arena_names
