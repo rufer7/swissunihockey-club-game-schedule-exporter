@@ -77,7 +77,7 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
     for game_data_row in game_data_rows:
         cells = game_data_row["cells"]
         if home_arena == str.join(", ", cells[1]["text"]):
-            if "Abgesagt" != cells[0][["text"][0]:
+            if "Abgesagt" != cells[0]["text"][0]:
                 game_record = GameRecord()
                 game_record.date = cells[0]["text"][0]
                 game_record.start_time = cells[0]["text"][1]
