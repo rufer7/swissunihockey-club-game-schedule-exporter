@@ -23,7 +23,7 @@ test cases for swiss_unihockey_api_wrapper.py
 import swiss_unihockey_api_wrapper
 
 
-SEASON = 2022
+SEASON = 2020
 
 
 class TestClubsLoading:  # pylint: disable=too-few-public-methods
@@ -40,7 +40,7 @@ class TestClubsLoading:  # pylint: disable=too-few-public-methods
         # act
         clubs = swiss_unihockey_api_wrapper.load_clubs(SEASON)
         # assert
-        assert len(clubs) == 367
+        assert len(clubs) == 377
         assert clubs["Hornets R.Moosseedorf Worblental"]
 
 
@@ -63,12 +63,12 @@ class TestGamesLoading:
                                                                          SEASON,
                                                                          self.HORNETS_HOME_ARENA)
         # assert
-        assert len(hornets_home_games) == 49
+        assert len(hornets_home_games) == 58
         first = hornets_home_games[0]
-        assert first.date == "29.05.2022"
-        assert first.start_time == "19:00"
-        assert first.home_team_name == "Damen I"
-        assert first.opponent == "UHC Flamatt-Sense"
+        assert first.date == "16.08.2020"
+        assert first.start_time == "19:30"
+        assert first.home_team_name == "Herren IV"
+        assert first.opponent == "Team Flamingo"
 
     def test_load_arena_names(self):
         """
@@ -80,7 +80,7 @@ class TestGamesLoading:
         # act
         arena_names = swiss_unihockey_api_wrapper.load_arena_names(self.HORNETS_CLUB_ID, SEASON)
         # assert
-        assert len(arena_names) == 65
+        assert len(arena_names) == 48
         assert self.HORNETS_HOME_ARENA in arena_names
-        assert "Berufsschulzentrum (BZI), Interlaken" in arena_names
+        assert "BFO Visp, Visp" in arena_names
         assert "???" not in arena_names
