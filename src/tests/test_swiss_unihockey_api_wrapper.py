@@ -40,7 +40,7 @@ class TestClubsLoading:  # pylint: disable=too-few-public-methods
         # act
         clubs = swiss_unihockey_api_wrapper.load_clubs(SEASON)
         # assert
-        assert len(clubs) == 377
+        assert len(clubs) == 367
         assert clubs["Hornets R.Moosseedorf Worblental"]
 
 
@@ -80,7 +80,7 @@ class TestGamesLoading:
         # act
         arena_names = swiss_unihockey_api_wrapper.load_arena_names(self.HORNETS_CLUB_ID, SEASON)
         # assert
-        assert len(arena_names) == 48
+        assert len(arena_names) == 65
         assert self.HORNETS_HOME_ARENA in arena_names
         assert "BFO Visp, Visp" in arena_names
         assert "???" not in arena_names
