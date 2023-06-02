@@ -78,23 +78,23 @@ def load_home_games(club_id: int, season: int, home_arena: str) -> list[GameReco
         cells = game_data_row["cells"]
         if home_arena == str.join(", ", cells[1]["text"]):
             if "Abgesagt" != cells[0][["text"][0]:
-               game_record = GameRecord()
-               game_record.date = cells[0]["text"][0]
-               game_record.start_time = cells[0]["text"][1]
-               home_team_name_prefix = get_home_team_name_prefix(cells[2]["text"][0])
-               if cells[3]["text"][0].startswith("Hornets"):
-                   home_team_name_suffix = cells[3]["text"][0].replace(club_name, "")
-                   opponent = cells[4]["text"][0]
-               else:
-                   home_team_name_suffix = cells[4]["text"][0].replace(club_name, "")
-                   opponent = cells[3]["text"][0]
-               if home_team_name_suffix in ("", " ")\
-                       and not home_team_name_prefix.startswith("Junioren U")\
-                       and not home_team_name_prefix.startswith("Junioren/-innen U"):
-                   home_team_name_suffix = " I"
-               game_record.home_team_name = home_team_name_prefix + home_team_name_suffix
-               game_record.opponent = opponent
-               home_games.append(game_record)
+                game_record = GameRecord()
+                game_record.date = cells[0]["text"][0]
+                game_record.start_time = cells[0]["text"][1]
+                home_team_name_prefix = get_home_team_name_prefix(cells[2]["text"][0])
+                if cells[3]["text"][0].startswith("Hornets"):
+                    home_team_name_suffix = cells[3]["text"][0].replace(club_name, "")
+                    opponent = cells[4]["text"][0]
+                else:
+                    home_team_name_suffix = cells[4]["text"][0].replace(club_name, "")
+                    opponent = cells[3]["text"][0]
+                if home_team_name_suffix in ("", " ")\
+                        and not home_team_name_prefix.startswith("Junioren U")\
+                        and not home_team_name_prefix.startswith("Junioren/-innen U"):
+                    home_team_name_suffix = " I"
+                game_record.home_team_name = home_team_name_prefix + home_team_name_suffix
+                game_record.opponent = opponent
+                home_games.append(game_record)
 
     return home_games
 
