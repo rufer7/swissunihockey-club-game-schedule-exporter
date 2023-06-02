@@ -23,7 +23,7 @@ test cases for swiss_unihockey_api_wrapper.py
 import swiss_unihockey_api_wrapper
 
 
-SEASON = 2020
+SEASON = 2022
 
 
 class TestClubsLoading:  # pylint: disable=too-few-public-methods
