@@ -63,11 +63,11 @@ class TestGamesLoading:
                                                                          SEASON,
                                                                          self.HORNETS_HOME_ARENA)
         # assert
-        assert len(hornets_home_games) == 58
+        assert len(hornets_home_games) == 49
         first = hornets_home_games[0]
         assert first.date == "29.05.2022"
         assert first.start_time == "19:00"
-        assert first.home_team_name == "Damen"
+        assert first.home_team_name == "Damen I"
         assert first.opponent == "UHC Flamatt-Sense"
 
     def test_load_arena_names(self):
