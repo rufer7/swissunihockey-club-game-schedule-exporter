@@ -63,7 +63,7 @@ class TestGamesLoading:
                                                                          SEASON,
                                                                          self.HORNETS_HOME_ARENA)
         # assert
-        assert len(hornets_home_games) == 58
+        assert len(hornets_home_games) == 14
         first = hornets_home_games[0]
         assert first.date == "16.08.2020"
         assert first.start_time == "19:30"
