@@ -82,5 +82,5 @@ class TestGamesLoading:
         # assert
         assert len(arena_names) == 65
         assert self.HORNETS_HOME_ARENA in arena_names
-        assert "BFO Visp, Visp" in arena_names
+        assert "Berufsschulzentrum (BZI), Interlaken" in arena_names
         assert "???" not in arena_names
